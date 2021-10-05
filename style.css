@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+div h1{
+    color: wheat;
+    font-family: 'Cairo', sans-serif;
+    font-size: 90px;
+}
+
+button{
+    background: wheat;
+    /* color: wheat; */
+    height: 50px;
+    width: 150px;
+    font-family: 'Cairo', sans-serif;
+    border-radius: 15px;
+    border-color: transparent;
+}
+
+button:hover{
+    box-shadow: white;
+}
+
