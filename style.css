@@ -4,30 +4,50 @@
     box-sizing: border-box;
 }
 
-div{
-    background-color: black;
+@font-face {
+    font-family:'Caribbean';
+    src:url("fonts/Caribbean.ttf");
+}
+
+body{
+    background-image: url(img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
+    flex-direction: column;
+    font-family: 'Caribbean';
+}
+
+main{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
-div h1{
-    color: wheat;
-    font-family: 'Cairo', sans-serif;
+main h1{
+    color: black;
     font-size: 90px;
 }
 
 button{
-    background: wheat;
-    /* color: wheat; */
+    background: black;
+    color: white;
     height: 50px;
     width: 150px;
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Caribbean';
     border-radius: 15px;
-    border-color: transparent;
+    border: none;
+}
+
+button:hover{
+    transition: all 0.5s;
+    box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px white;
 }
 
 button:hover{
