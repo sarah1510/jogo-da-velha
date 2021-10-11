@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family:'Caribbean';
+    src:url("../fonts/Caribbean.ttf");
+}
+
+body{
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: black; */
+    flex-direction: column;
+    font-family: 'Caribbean';
+}
+
+header{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ height: 140px;
+}
+
+header h1{
+    font-size: 25px;
+}
+
+.placa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placa img{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    z-index: -1;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 2
+}
+
+
+.options{
+    margin-left: 40px;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../img/map.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 320px;
+    width: 250px;
+    gap: 20px;
+}
+
+.options h2{
+    margin-top: 30px;
+    font-size:25px ;
+}
+
+.options .configs{
+    margin-left: 40px;
+}
+
+.options button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 150px;
+    background-color: wheat;
+    border-color: transparent;
+}
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Caribbean';
+    color: black;
+    font-size: 30px;
+}
+
+.display{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+}
+
+.jogadores{
+    width: 100%;
+    display: flex;
+}
+
+.jogador{
+    background-color: white;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    
+    color: black;
+}
+.jogador label, span{
+    color: black;
+}
+
+.vez-jogador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#game{
+    display: flex;
+    flex-direction: column;
+
+}
+ 
+.linha{
+    display: flex;
+    flex-direction: row;
+
+}
+ 
+.casa{
+    width:100px;
+    height:100px;
+    border: 0.7vw outset rgb(88, 88, 88);
+    transition: all .5s ease-out;
+} 
+
+.casa:hover{
+    cursor: pointer;
+    background-color: #f5f5f528;
+}
+
+
+#casa1,
+#casa2,
+#casa3{
+    border-top: none;
+}
+
+#casa3,
+#casa6,
+#casa9 {
+    border-right: none;
+}
+
+#casa7,
+#casa8,
+#casa9 {
+    border-bottom: none;
+}
+
+#casa1,
+#casa4,
+#casa7 {
+    border-left: none;
+}
+
+
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 100vw;
+    /* background-color: aqua; */
+}
+
+footer span{
+    color: black;
+}
+
+.a{
+ border: 0px 5px 5px 5px solid white;
+}
