@@ -185,6 +185,9 @@ h1{
 }
  
 .casa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width:100px;
     height:100px;
     border: 0.7vw outset rgb(88, 88, 88);
@@ -194,6 +197,10 @@ h1{
 .casa:hover{
     cursor: pointer;
     background-color: #f5f5f528;
+}
+.casa img{
+    width: 80px;
+    height: 80px;
 }
 
 
@@ -232,6 +239,10 @@ footer{
     /* background-color: aqua; */
 }
 
+footer img{
+    display: none;
+}
+
 footer span{
     color: black;
 }
@@ -241,6 +252,16 @@ footer span{
 }
 
 @media (max-width:920px){
+
+    header h1{
+        font-size: 20px;
+    }
+
+    .placa img{
+        width: 400px;
+        height: 400px;
+    }
+
     .optionsBack{
         position: fixed;
         width: 100vw;
@@ -248,7 +269,7 @@ footer span{
         background-color: #0009;
         top: 0;
         left: 0;
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
     
@@ -260,5 +281,23 @@ footer span{
 
     .buttons .close{
         display: flex;
+    }
+
+    main h2{
+        font-size: 15px;
+    }
+
+    footer span{
+        font-size: 10px;
+    }
+
+    footer img{
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 10px;
+        height: 20px;
+        width: 20px;
     }
 }

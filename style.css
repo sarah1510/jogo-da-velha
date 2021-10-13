@@ -32,7 +32,7 @@ main{
 
 main h1{
     color: black;
-    font-size: 90px;
+    font-size:90px;
 }
 
 button{
@@ -52,4 +52,23 @@ button:hover{
 
 button:hover{
     box-shadow: white;
+}
+
+@media (max-width:920px){
+
+
+    main h1{
+        font-size: 30px;
+    }
+
+
+    button{
+        background: black;
+        color: white;
+        height: 40px;
+        width: 120px;
+        font-family: 'Caribbean';
+        border-radius: 10px;
+        border: none;
+    }
 }

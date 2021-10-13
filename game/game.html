@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da velha</title>
-
+    <script src="game.js" defer></script>
     <link rel="stylesheet" href="game.css">
 </head>
 <body>
@@ -49,33 +49,33 @@
                 </div>
 
                 <div class="buttons">
-                    <button>Reiniciar Jogo</button>
-                    <button class="close">Fechar</button>
+                    <button id="reiniciar">Reiniciar Jogo</button>
+                    <button class="close" id="close">Fechar</button>
                 </div>
             </div>
       </div>
 
 
 
-        <h2 class="vez-jogador">Vez de (X ou O)</h2>
+        <h2 class="vez-jogador" id="vezDe">Vez de (X ou O)</h2>
 
 
 
         <div id="game"> 
             <div class="linha">
-                <div class="casa 1" id="casa1"></div>
-                <div class="casa 2" id="casa2"></div>
-                <div class="casa 3" id="casa3"></div>
+                <div class="casa 1" id="casa1" onclick="joga(this.id);"> <img src="../img/marinha.png" alt=""></div>
+                <div class="casa 2" id="casa2" onclick="joga(this.id);"></div>
+                <div class="casa 3" id="casa3" onclick="joga(this.id);"></div>
             </div>
             <div class="linha">
-                <div class="casa 4" id="casa4"></div>
-                <div class="casa 5" id="casa5"></div>
-                <div class="casa 6" id="casa6"></div>
+                <div class="casa 4" id="casa4" onclick="joga(this.id);"></div>
+                <div class="casa 5" id="casa5" onclick="joga(this.id);"></div>
+                <div class="casa 6" id="casa6" onclick="joga(this.id);"></div>
             </div>
             <div class="linha">
-                <div class="casa 7" id="casa7"></div>
-                <div class="casa 8" id="casa8"></div>
-                <div class="casa 9" id="casa9"></div>
+                <div class="casa 7" id="casa7" onclick="joga(this.id);"></div>
+                <div class="casa 8" id="casa8" onclick="joga(this.id);"></div>
+                <div class="casa 9" id="casa9" onclick="joga(this.id);"></div>
             </div>
         </div>
 
@@ -86,6 +86,7 @@
     
     <footer>
         <span>Copyright&copy; Sara de Faria and Paulo César </span>
+        <img src="../img/config.png" alt="" id="options">
     </footer>
 
 </body>
