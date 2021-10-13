@@ -25,24 +25,44 @@ const casa7 = document.getElementById("casa7")
 const casa8 = document.getElementById("casa8")
 const casa9 = document.getElementById("casa9")
 
+const campoEstaVazio = (campoSelecionado) => campoSelecionado.children.length == 0
 
 function joga(casa){
   
     const casaClicada = document.getElementById(casa)
+     let jogador
+     let adversario
+   var ePirata = true
+
+
+    if (campoEstaVazio(casaClicada)) {
+     
+
+    if (ePirata = true) {
+        jogador = 'pirata'
     
+        ePirata = false
+
+    } else if (ePirata = false){
+        jogador = 'marinha'
+       
+        ePirata = true
+    }
+
 
         if (casaClicada != ``){
            
-            casaClicada.innerHTML = `<img src="../img/marinha.png" alt="">`
+            casaClicada.innerHTML = `<img src="../img/${jogador}.png" alt="">`
        
-          
         }else{
 
         }
-   }
+   
+    }else{
 
+    }
 
 
 
  
-  
+}
