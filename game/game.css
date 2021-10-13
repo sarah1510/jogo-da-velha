@@ -53,6 +53,7 @@ main{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 main h2{
@@ -188,8 +189,8 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    width:100px;
-    height:100px;
+    width:150px;
+    height:150px;
     border: 0.7vw outset rgb(88, 88, 88);
     transition: all .5s ease-out;
 } 
@@ -262,6 +263,10 @@ footer span{
         height: 400px;
     }
 
+        .casa{
+            border: 1vw outset rgb(88, 88, 88);
+        }
+
     .optionsBack{
         position: fixed;
         width: 100vw;
@@ -297,7 +302,7 @@ footer span{
         bottom: 0;
         right: 0;
         margin: 10px;
-        height: 20px;
-        width: 20px;
+        height: 30px;
+        width: 30px;
     }
 }
