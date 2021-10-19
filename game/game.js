@@ -1,5 +1,6 @@
 "use strict"
 
+
 const casa1 = document.getElementById("casa1")
 const casa2 = document.getElementById("casa2")
 const casa3 = document.getElementById("casa3")
@@ -9,6 +10,12 @@ const casa6 = document.getElementById("casa6")
 const casa7 = document.getElementById("casa7")
 const casa8 = document.getElementById("casa8")
 const casa9 = document.getElementById("casa9")
+
+    function verificaVitoria() {
+        if(casa1 && casa2 && casa3 != ``){
+            alert("voce ganhou")
+        }
+    }
 
     let casaClicada
     const campoEstaVazio = (casaClicada) => casaClicada.children.length == 0
@@ -35,12 +42,12 @@ const casa9 = document.getElementById("casa9")
             jogador = 'Pirata'
             adversario = 'Marinha'
             ePirata = false
-        
+            verificaVitoria()
         } else if (!ePirata) {
             jogador = 'Marinha'
             adversario = 'Pirata'
             ePirata = true
-        
+            verificaVitoria()
         }
 
         if (casaClicada != ``){ 
@@ -49,17 +56,16 @@ const casa9 = document.getElementById("casa9")
 
         vezDe.innerHTML = `Vez de ${adversario}`
 
-
     }
 
 
 }
 
-const tipoDeJogo = document.getElementById("tipoDeJogo").value
+// const tipoDeJogo = document.getElementById("tipoDeJogo").value
 
-if (tipoDeJogo = 'playerVSplayer'){
-    quemComeca.style.
-}
+// if (tipoDeJogo = 'playerVSplayer'){
+//     quemComeca.style.disa
+// }
 
 function MenuOpcoes(){
     document.querySelector(".optionsBack").style.display = "flex"
