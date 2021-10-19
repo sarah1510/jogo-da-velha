@@ -25,43 +25,50 @@ const casa7 = document.getElementById("casa7")
 const casa8 = document.getElementById("casa8")
 const casa9 = document.getElementById("casa9")
 
-const campoEstaVazio = (campoSelecionado) => campoSelecionado.children.length == 0
+const MatrizDoJogo = (indice, casaClicada) => {
+    matrizJogo[indice] = casaClicada
+
+    possibilidadesVitoria = [
+        [matrizJogo[0], matrizJogo[1], matrizJogo[2]],
+        [matrizJogo[3], matrizJogo[4], matrizJogo[5]],
+        [matrizJogo[6], matrizJogo[7], matrizJogo[8]],
+        [matrizJogo[0], matrizJogo[3], matrizJogo[6]],
+        [matrizJogo[1], matrizJogo[4], matrizJogo[7]],
+        [matrizJogo[2], matrizJogo[5], matrizJogo[8]],
+        [matrizJogo[0], matrizJogo[4], matrizJogo[8]],
+        [matrizJogo[2], matrizJogo[4], matrizJogo[6]]
+    ]
+}
+
+
+let casaClicada
+const campoEstaVazio = (casaClicada) => casaClicada.children.length == 0
+
+     var ePirata = true
 
 function joga(casa){
   
     const casaClicada = document.getElementById(casa)
      let jogador
-     let adversario
-   var ePirata = true
-
 
     if (campoEstaVazio(casaClicada)) {
      
+        if (ePirata) {
+            jogador = 'Pirata'
+            ePirata = false
 
-    if (ePirata = true) {
-        jogador = 'pirata'
-    
-        ePirata = false
+        } else if (!ePirata) {
+            jogador = 'Marinha'
+            ePirata = true
+        }
 
-    } else if (ePirata = false){
-        jogador = 'marinha'
-       
-        ePirata = true
-    }
-
-
-        if (casaClicada != ``){
-           
+        if (casaClicada != ``){ 
             casaClicada.innerHTML = `<img src="../img/${jogador}.png" alt="">`
-       
-        }else{
-
         }
    
-    }else{
-
     }
 
+    aplicarJogada(casaClicada, jogador, indice)
 
 
  
