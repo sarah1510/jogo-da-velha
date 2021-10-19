@@ -1,20 +1,5 @@
 "use strict"
 
-function MenuOpcoes(){
-    document.querySelector(".optionsBack").style.display = "flex"
-}
-function FecharOpcoes(){
-    document.querySelector(".optionsBack").style.display = "none"
-}
-
-document.getElementById("options").addEventListener("click", MenuOpcoes)
-document.getElementById("close").addEventListener("click", FecharOpcoes)
-
-
-function reiniciar() { window.location.reload(); }
-document.getElementById('reiniciar').addEventListener("click" , reiniciar)
-
-
 const casa1 = document.getElementById("casa1")
 const casa2 = document.getElementById("casa2")
 const casa3 = document.getElementById("casa3")
@@ -25,51 +10,69 @@ const casa7 = document.getElementById("casa7")
 const casa8 = document.getElementById("casa8")
 const casa9 = document.getElementById("casa9")
 
-const MatrizDoJogo = (indice, casaClicada) => {
-    matrizJogo[indice] = casaClicada
+    let casaClicada
+    const campoEstaVazio = (casaClicada) => casaClicada.children.length == 0
 
-    possibilidadesVitoria = [
-        [matrizJogo[0], matrizJogo[1], matrizJogo[2]],
-        [matrizJogo[3], matrizJogo[4], matrizJogo[5]],
-        [matrizJogo[6], matrizJogo[7], matrizJogo[8]],
-        [matrizJogo[0], matrizJogo[3], matrizJogo[6]],
-        [matrizJogo[1], matrizJogo[4], matrizJogo[7]],
-        [matrizJogo[2], matrizJogo[5], matrizJogo[8]],
-        [matrizJogo[0], matrizJogo[4], matrizJogo[8]],
-        [matrizJogo[2], matrizJogo[4], matrizJogo[6]]
-    ]
-}
+    const quemComeca = document.getElementById("QuemComeca").value
+    var ePirata = true
 
-
-let casaClicada
-const campoEstaVazio = (casaClicada) => casaClicada.children.length == 0
-
-     var ePirata = true
-
-function joga(casa){
+    function joga(casa, indice){
   
     const casaClicada = document.getElementById(casa)
-     let jogador
+    const vezDe = document.getElementById("vezDe")
+
+
+    let jogador  
+
+    let adversario
+
+   
 
     if (campoEstaVazio(casaClicada)) {
-     
+
+      
         if (ePirata) {
             jogador = 'Pirata'
+            adversario = 'Marinha'
             ePirata = false
-
+        
         } else if (!ePirata) {
             jogador = 'Marinha'
+            adversario = 'Pirata'
             ePirata = true
+        
         }
 
         if (casaClicada != ``){ 
             casaClicada.innerHTML = `<img src="../img/${jogador}.png" alt="">`
         }
-   
+
+        vezDe.innerHTML = `Vez de ${adversario}`
+
+
     }
 
-    aplicarJogada(casaClicada, jogador, indice)
 
-
- 
 }
+
+const tipoDeJogo = document.getElementById("tipoDeJogo").value
+
+if (tipoDeJogo = 'playerVSplayer'){
+    quemComeca.style.
+}
+
+function MenuOpcoes(){
+    document.querySelector(".optionsBack").style.display = "flex"
+}
+
+function FecharOpcoes(){
+    document.querySelector(".optionsBack").style.display = "none"
+}
+
+function reiniciar() { 
+    window.location.reload();
+}
+
+document.getElementById("options").addEventListener("click", MenuOpcoes)
+document.getElementById("close").addEventListener("click", FecharOpcoes)
+document.getElementById('reiniciar').addEventListener("click" , reiniciar)
