@@ -11,11 +11,37 @@ const casa7 = document.getElementById("casa7")
 const casa8 = document.getElementById("casa8")
 const casa9 = document.getElementById("casa9")
 
-    function verificaVitoria() {
-        if(casa1 && casa2 && casa3 != ``){
-            alert("voce ganhou")
+var vencedor = ""
+
+function casasIguais(casaA, casaB, casaC){
+
+    if( (casaA == casaB) && (casaB == casaC) && (casaA != "none" && casaA != "")){
+        if(casaA.innerHTML = '<img src="../img/Pirata.png" alt="">'){
+            vencedor = "Pirata"
+        }else if (casaA.innerHTML = '<img src="../img/Marinha.png" alt="">'){
+            vencedor = "Marinha"
         }
+        return true
     }
+    else{
+        return false;
+    }
+ 
+   
+}
+
+function verificarFimDeJogo(){
+    if( casasIguais(casa1, casa2, casa3) || casasIguais(casa4, casa5, casa6) || casasIguais(casa7, casa8, casa9) ||
+        casasIguais(casa1, casa4, casa7) || casasIguais(casa2, casa5, casa8) || casasIguais(casa3, casa6, casa9) ||
+        casasIguais(casa1, casa5, casa9) || casasIguais(casa3, casa5, casa7)
+        ){
+    alert("some")
+    }
+}
+
+
+
+  
 
     let casaClicada
     const campoEstaVazio = (casaClicada) => casaClicada.children.length == 0
@@ -23,7 +49,7 @@ const casa9 = document.getElementById("casa9")
     const quemComeca = document.getElementById("QuemComeca").value
     var ePirata = true
 
-    function joga(casa, indice){
+    function joga(casa){
   
     const casaClicada = document.getElementById(casa)
     const vezDe = document.getElementById("vezDe")
@@ -42,23 +68,24 @@ const casa9 = document.getElementById("casa9")
             jogador = 'Pirata'
             adversario = 'Marinha'
             ePirata = false
-            verificaVitoria()
+            verificarFimDeJogo()
         } else if (!ePirata) {
             jogador = 'Marinha'
             adversario = 'Pirata'
             ePirata = true
-            verificaVitoria()
+            verificarFimDeJogo()
         }
 
         if (casaClicada != ``){ 
             casaClicada.innerHTML = `<img src="../img/${jogador}.png" alt="">`
+            verificarFimDeJogo()
         }
 
         vezDe.innerHTML = `Vez de ${adversario}`
-
+        verificarFimDeJogo()
     }
 
-
+    verificarFimDeJogo()
 }
 
 // const tipoDeJogo = document.getElementById("tipoDeJogo").value
