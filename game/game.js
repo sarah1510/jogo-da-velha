@@ -13,7 +13,7 @@ const casa9 = document.getElementById("casa9")
 
 const winMessage = document.getElementById("winMessage")
 
-var vencedor = ""
+
 
 var temVencedor = false
 
@@ -23,13 +23,18 @@ function casasIguais(casaA, casaB, casaC){
         
     
         if((casaA == `<img src="../img/Pirata.png">`) && (casaA == casaB) && (casaB == casaC) ){
-            vencedor = "Pirata"
+            
             temVencedor = true
             document.querySelector(".win").style.display = "flex";
             winMessage.innerHTML = `<h1>Pirata venceu</h1>
                                     <button onclick="reiniciar()">Reiniciar Jogo</button>`
         }else if ((casaA == `<img src="../img/Marinha.png">`) && (casaA == casaB) && (casaB == casaC) ){
-            vencedor = "Marinha"
+         
+            temVencedor = true
+            document.querySelector(".win").style.display = "flex";
+            winMessage.innerHTML = `<h1>Marinha venceu</h1>
+                                    <button onclick="reiniciar()">Reiniciar Jogo</button>`
+        } else if ((casaA != casaB) && (casaB != casaC)){
             temVencedor = true
             document.querySelector(".win").style.display = "flex";
             winMessage.innerHTML = `<h1>Marinha venceu</h1>
