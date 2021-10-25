@@ -11,37 +11,38 @@ const casa7 = document.getElementById("casa7")
 const casa8 = document.getElementById("casa8")
 const casa9 = document.getElementById("casa9")
 
+const winMessage = document.getElementById("winMessage")
+
 var vencedor = ""
+
+var temVencedor = false
+
 
 function casasIguais(casaA, casaB, casaC){
 
-    if( (casaA == casaB) && (casaB == casaC) && (casaA != "none" && casaA != "")){
-        if(casaA.innerHTML = '<img src="../img/Pirata.png" alt="">'){
+        
+    
+        if((casaA == `<img src="../img/Pirata.png">`) && (casaA == casaB) && (casaB == casaC) ){
             vencedor = "Pirata"
-        }else if (casaA.innerHTML = '<img src="../img/Marinha.png" alt="">'){
+            temVencedor = true
+            document.querySelector(".win").style.display = "flex";
+            winMessage.innerHTML = `<h1>Pirata venceu</h1>
+                                    <button onclick="reiniciar()">Reiniciar Jogo</button>`
+        }else if ((casaA == `<img src="../img/Marinha.png">`) && (casaA == casaB) && (casaB == casaC) ){
             vencedor = "Marinha"
+            temVencedor = true
+            document.querySelector(".win").style.display = "flex";
+            winMessage.innerHTML = `<h1>Marinha venceu</h1>
+                                    <button onclick="reiniciar()">Reiniciar Jogo</button>`
         }
-        return true
-    }
-    else{
-        return false;
-    }
  
    
 }
 
-function verificarFimDeJogo(){
-    if( casasIguais(casa1, casa2, casa3) || casasIguais(casa4, casa5, casa6) || casasIguais(casa7, casa8, casa9) ||
-        casasIguais(casa1, casa4, casa7) || casasIguais(casa2, casa5, casa8) || casasIguais(casa3, casa6, casa9) ||
-        casasIguais(casa1, casa5, casa9) || casasIguais(casa3, casa5, casa7)
-        ){
-    alert("some")
-    }
-}
 
 
 
-  
+   
 
     let casaClicada
     const campoEstaVazio = (casaClicada) => casaClicada.children.length == 0
@@ -61,32 +62,34 @@ function verificarFimDeJogo(){
 
    
 
-    if (campoEstaVazio(casaClicada)) {
+    if (campoEstaVazio(casaClicada) && !temVencedor) {
 
       
         if (ePirata) {
             jogador = 'Pirata'
             adversario = 'Marinha'
             ePirata = false
-            verificarFimDeJogo()
+            
+
         } else if (!ePirata) {
             jogador = 'Marinha'
             adversario = 'Pirata'
             ePirata = true
-            verificarFimDeJogo()
         }
 
         if (casaClicada != ``){ 
-            casaClicada.innerHTML = `<img src="../img/${jogador}.png" alt="">`
-            verificarFimDeJogo()
+            casaClicada.innerHTML = `<img src="../img/${jogador}.png">`
+            casasIguais(casa1.innerHTML, casa2.innerHTML, casa3.innerHTML) || casasIguais(casa4.innerHTML, casa5.innerHTML, casa6.innerHTML) || casasIguais(casa7.innerHTML, casa8.innerHTML, casa9.innerHTML) ||
+            casasIguais(casa1.innerHTML, casa4.innerHTML, casa7.innerHTML) || casasIguais(casa2.innerHTML, casa5.innerHTML, casa8.innerHTML) || casasIguais(casa3.innerHTML, casa6.innerHTML, casa9.innerHTML) ||
+            casasIguais(casa1.innerHTML, casa5.innerHTML, casa9.innerHTML) || casasIguais(casa3.innerHTML, casa5.innerHTML, casa7.innerHTML)
+            
         }
 
         vezDe.innerHTML = `Vez de ${adversario}`
-        verificarFimDeJogo()
-    }
+  
+    } 
 
-    verificarFimDeJogo()
-}
+} 
 
 // const tipoDeJogo = document.getElementById("tipoDeJogo").value
 

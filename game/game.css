@@ -146,6 +146,40 @@ h1{
     gap: 30px;
 }
 
+.win{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0009;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.winMessage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    rotate: 1.5deg;
+    background-image: url(../img/map1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 320px;
+    width: 380px;
+    gap: 20px;
+}
+
+.winMessage button{
+    width: 180px;
+    height: 40px;
+    font-size: 15px;
+}
+
 .jogadores{
     width: 100%;
     display: flex;
