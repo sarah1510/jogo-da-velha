@@ -44,17 +44,7 @@ function joga(casa){
 
     if (campoEstaVazio(casaClicada) && !temVencedor) {
       
-        if (ePirata) {
-            jogador = 'Pirata'
-            adversario = 'Marinha'
-            ePirata = false
-            
-
-        } else if (!ePirata) {
-            jogador = 'Marinha'
-            adversario = 'Pirata'
-            ePirata = true
-        }
+        verificaPirata()
 
         if (casaClicada != ``){ 
             casaClicada.innerHTML = `<img src="../img/${jogador}.png">`
@@ -65,10 +55,11 @@ function joga(casa){
         }
 
         vezDe.innerHTML = `Vez de ${adversario}`
-
-     jogarAleatoriamente()
+        
   
     } 
+
+    
 
 } 
 
@@ -97,6 +88,10 @@ function reiniciarJogo() {
     vezDe.innerHTML = `Vez de ${quemComeca.value}`
 }
 
+let casaA
+let casaB
+let casaC
+
 function casasIguais(casaA, casaB, casaC){
 
     if( (casaA == casaB) && (casaB == casaC) ){
@@ -114,7 +109,7 @@ function casasIguais(casaA, casaB, casaC){
                                 <button onclick="reiniciarJogo()">Reiniciar Jogo</button>`
     } 
 
-    }else if((casa1.innerHTML != ``)  && (casa2.innerHTML != ``) && (casa3.innerHTML != ``) && (casa4.innerHTML != ``) && (casa5.innerHTML != ``) && (casa6.innerHTML != ``) && (casa7.innerHTML != ``) && (casa8.innerHTML != ``) && (casa9.innerHTML != ``)    ){
+    }else if(!temVencedor && (casa1.innerHTML != ``)  && (casa2.innerHTML != ``) && (casa3.innerHTML != ``) && (casa4.innerHTML != ``) && (casa5.innerHTML != ``) && (casa6.innerHTML != ``) && (casa7.innerHTML != ``) && (casa8.innerHTML != ``) && (casa9.innerHTML != ``)    ){
         temVencedor = true    
         document.querySelector(".win").style.display = "flex";
         winMessage.innerHTML = `<h1>Empate</h1>
@@ -122,36 +117,134 @@ function casasIguais(casaA, casaB, casaC){
     }   
 }
 
-function verificaTipoJogo(){
-    if (tipoDeJogo.value = "easy") {
-        
+function verificaTipoeJoga(){
+    if (tipoDeJogo.value == 'easy') {
+        jogarAleatoriamente()
+    } else if (tipoDeJogo.value == 'medium'){
+        if((casaA == casaB) || (casaA == casaC)){
+            fecharAdversario()
+        } else {
+            jogarAleatoriamente()
+        }
+    } else if (tipoDeJogo.value == 'playerVSplayer'){
+
     }
 }
+
+  var jogadaAleatoria = Math.floor(Math.random()*9)
 
 function jogarAleatoriamente(){
     
-    var jogadaAleatoria = Math.floor(Math.random() * 8)
+  jogadasAleatorias()
 
-    if(jogadaAleatoria = 0 && campoEstaVazio(casa1)){
-        casa1.innerHTML = `<img src="../img/${jogador}.png">`
-    } else if(jogadaAleatoria = 1 && campoEstaVazio(casa2)){
-        casa2.innerHTML = `<img src="../img/${jogador}.png">`
-    } else if(jogadaAleatoria = 2 && campoEstaVazio(casa3)){
-        casa3.innerHTML = `<img src="../img/${jogador}.png">`
-    } else if(jogadaAleatoria = 3 && campoEstaVazio(casa4)){
-        casa4.innerHTML = `<img src="../img/${jogador}.png">`
-    } else if(jogadaAleatoria = 4 && campoEstaVazio(casa5)){
-        casa5.innerHTML = `<img src="../img/${jogador}.png">`
-    } else if(jogadaAleatoria = 5 && campoEstaVazio(casa6)){
-        casa6.innerHTML = `<img src="../img/${jogador}.png">`
-    } else if(jogadaAleatoria = 6 && campoEstaVazio(casa7)){
-        casa7.innerHTML = `<img src="../img/${jogador}.png">`
-    } else if(jogadaAleatoria = 7 && campoEstaVazio(casa8)){
-        casa8.innerHTML = `<img src="../img/${jogador}.png">`
-    } else if(jogadaAleatoria = 8 && campoEstaVazio(casa9)){
-        casa9.innerHTML = `<img src="../img/${jogador}.png">`
-    }
-    
+    console.log(jogadaAleatoria)
+   
+
+ if ((casa1.innerHTML != ``) && (jogadaAleatoria == 0)){
+        jogadaAleatoria = Math.floor(Math.random()*9)
+        jogadasAleatorias()
+ } else if ((casa2.innerHTML != ``)  && (jogadaAleatoria == 1)){
+    jogadaAleatoria = Math.floor(Math.random()*9)
+    jogadasAleatorias()
+} else if ((casa3.innerHTML != ``)  && (jogadaAleatoria == 2)){
+    jogadaAleatoria = Math.floor(Math.random()*9)
+    jogadasAleatorias()
+} else if ((casa4.innerHTML != ``) && (jogadaAleatoria == 3)){
+    jogadaAleatoria = Math.floor(Math.random()*9)
+    jogadasAleatorias()
+} else if ((casa5.innerHTML != ``)  && (jogadaAleatoria == 4)){
+    jogadaAleatoria = Math.floor(Math.random()*9)
+    jogadasAleatorias()
+} else if ((casa6.innerHTML != ``)  && (jogadaAleatoria == 5)){
+    jogadaAleatoria = Math.floor(Math.random()*9)
+    jogadasAleatorias()
+} else if ((casa7.innerHTML != ``) && (jogadaAleatoria == 6)){
+    jogadaAleatoria = Math.floor(Math.random()*9)
+    jogadasAleatorias()
+} else if ((casa8.innerHTML != ``)  && (jogadaAleatoria == 7)){
+    jogadaAleatoria = Math.floor(Math.random()*9)
+    jogadasAleatorias()
+} else if ((casa9.innerHTML != ``) && (jogadaAleatoria == 8)){
+    jogadaAleatoria = Math.floor(Math.random()*9)
+    jogadasAleatorias()
 }
 
+    if(jogador == 'Pirata'){
+        ePirata = true
+    } else if(jogador == 'Marinha') {
+        ePirata = false
+    }
+    
+    vezDe.innerHTML = `Vez de ${jogador}`
+ 
+}
+
+function jogadasAleatorias() {
+    
+    if(jogadaAleatoria == 0 && casa1.innerHTML == ``){
+        casa1.innerHTML = `<img src="../img/${adversario}.png">`
+      
+    } else if(jogadaAleatoria == 1 && casa2.innerHTML == ``){
+        casa2.innerHTML = `<img src="../img/${adversario}.png">`
+
+        
+    } else if(jogadaAleatoria == 2 && casa3.innerHTML == ``){
+        casa3.innerHTML = `<img src="../img/${adversario}.png">`
+
+        
+    } else if(jogadaAleatoria == 3 && casa4.innerHTML == ``){
+        casa4.innerHTML = `<img src="../img/${adversario}.png">`
+
+        
+    } else if(jogadaAleatoria == 4 && casa5.innerHTML == ``){
+        casa5.innerHTML = `<img src="../img/${adversario}.png">`
+
+        
+    } else if(jogadaAleatoria == 5 && casa6.innerHTML == ``){
+        casa6.innerHTML = `<img src="../img/${adversario}.png">`
+        
+    } else if(jogadaAleatoria == 6 && casa7.innerHTML == ``){
+        casa7.innerHTML = `<img src="../img/${adversario}.png">`
+
+    } else if(jogadaAleatoria == 7 && casa8.innerHTML == ``){
+        casa8.innerHTML = `<img src="../img/${adversario}.png">`
+
+        
+    } else if(jogadaAleatoria == 8 && casa9.innerHTML == ``){
+        casa9.innerHTML = `<img src="../img/${adversario}.png">`
+
+    }
+}
+
+function fecharAdversario() {
+    // if(casaA == casaB){
+    //     casaC.innerHTML = `<img src="../img/${adversario}.png">`
+    // } else if (casaA == casaC){
+    //     casaB.innerHTML = `<img src="../img/${adversario}.png">`
+    // }
+    // if(jogador == 'Pirata'){
+    //     ePirata = true
+    // } else if(jogador == 'Marinha') {
+    //     ePirata = false
+    // }
+}
+
+function aplicarJogadaMaquina() {
+    verificaTipoeJoga()
+}
+
+function verificaPirata() {
+    if (ePirata) {
+        jogador = 'Pirata'
+        adversario = 'Marinha'
+        ePirata = false
+        aplicarJogadaMaquina()
+        
+    } else if (!ePirata) {
+        jogador = 'Marinha'
+        adversario = 'Pirata'
+        ePirata = true
+        aplicarJogadaMaquina()
+    }
+}
 
