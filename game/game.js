@@ -10,12 +10,14 @@ const casa6 = document.getElementById("casa6")
 const casa7 = document.getElementById("casa7")
 const casa8 = document.getElementById("casa8")
 const casa9 = document.getElementById("casa9")
-  
+
+
 const campoEstaVazio = (casaClicada) => casaClicada.children.length == 0
 
 const winMessage = document.getElementById("winMessage")
 
 const tipoDeJogo = document.getElementById("tipoDeJogo")
+
 const quemComeca = document.getElementById("QuemComeca")
 
 var temVencedor = false
@@ -24,27 +26,23 @@ var ePirata = true
 let casaClicada
   
 
-    function quemVaiComecar(){
+function quemVaiComecar(){
         if(quemComeca.value == 'Pirata'){
             ePirata = true
-            console.log(quemComeca.value)
         } else if(quemComeca.value == 'Marinha') {
             ePirata = false
-            console.log(quemComeca.value)
         }
-    }
+}
 
-
-    function joga(casa){
+   let jogador  
+   let adversario
+function joga(casa){
 
     const casaClicada = document.getElementById(casa)
     const vezDe = document.getElementById("vezDe")
 
-    let jogador  
-    let adversario
 
     if (campoEstaVazio(casaClicada) && !temVencedor) {
-
       
         if (ePirata) {
             jogador = 'Pirata'
@@ -68,17 +66,13 @@ let casaClicada
 
         vezDe.innerHTML = `Vez de ${adversario}`
 
-     
+     jogarAleatoriamente()
   
     } 
 
 } 
 
-function verificaTipoJogo(){
-    if (tipoDeJogo.value = 'playerVSplayer'){
-        
-    }
-}
+
 function MenuOpcoes(){
     document.querySelector(".optionsBack").style.display = "flex"
 }
@@ -126,6 +120,38 @@ function casasIguais(casaA, casaB, casaC){
         winMessage.innerHTML = `<h1>Empate</h1>
                                 <button onclick="reiniciarJogo()">Reiniciar Jogo</button>`
     }   
+}
+
+function verificaTipoJogo(){
+    if (tipoDeJogo.value = "easy") {
+        
+    }
+}
+
+function jogarAleatoriamente(){
+    
+    var jogadaAleatoria = Math.floor(Math.random() * 8)
+
+    if(jogadaAleatoria = 0 && campoEstaVazio(casa1)){
+        casa1.innerHTML = `<img src="../img/${jogador}.png">`
+    } else if(jogadaAleatoria = 1 && campoEstaVazio(casa2)){
+        casa2.innerHTML = `<img src="../img/${jogador}.png">`
+    } else if(jogadaAleatoria = 2 && campoEstaVazio(casa3)){
+        casa3.innerHTML = `<img src="../img/${jogador}.png">`
+    } else if(jogadaAleatoria = 3 && campoEstaVazio(casa4)){
+        casa4.innerHTML = `<img src="../img/${jogador}.png">`
+    } else if(jogadaAleatoria = 4 && campoEstaVazio(casa5)){
+        casa5.innerHTML = `<img src="../img/${jogador}.png">`
+    } else if(jogadaAleatoria = 5 && campoEstaVazio(casa6)){
+        casa6.innerHTML = `<img src="../img/${jogador}.png">`
+    } else if(jogadaAleatoria = 6 && campoEstaVazio(casa7)){
+        casa7.innerHTML = `<img src="../img/${jogador}.png">`
+    } else if(jogadaAleatoria = 7 && campoEstaVazio(casa8)){
+        casa8.innerHTML = `<img src="../img/${jogador}.png">`
+    } else if(jogadaAleatoria = 8 && campoEstaVazio(casa9)){
+        casa9.innerHTML = `<img src="../img/${jogador}.png">`
+    }
+    
 }
 
 
