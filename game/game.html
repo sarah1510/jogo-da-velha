@@ -37,15 +37,15 @@
 
                 <div class="configs">
                     <label for="">Quem começa?</label>
-                    <select name="" id="QuemComeca" disabled>
+                    <select name="" id="QuemComeca">
                         <option value="Pirata" id="pirata">Pirata</option>
                         <option value="Marinha" id="marinha">Marinha</option>
                     </select>
                 </div>
 
                 <div class="buttons">
-                    <button id="reiniciar" onclick="">Reiniciar Jogo</button>
-                    <button class="close" id="close">Fechar</button>
+                    <button id="reiniciar" onclick="reiniciarJogo()">Jogar</button>
+                    <button class="close" id="close" onclick="FecharOpcoes()">Fechar</button>
                 </div>
             </div>
       </div>
@@ -84,7 +84,7 @@
     
     <footer>
         <span>Copyright&copy; Sara de Faria and Paulo César </span>
-        <img src="../img/config.png" alt="" id="options">
+        <img src="../img/config.png" alt="" id="options" onclick="MenuOpcoes()">
     </footer>
 
 </body>
