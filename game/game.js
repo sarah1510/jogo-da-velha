@@ -11,6 +11,8 @@ const casa7 = document.getElementById("casa7")
 const casa8 = document.getElementById("casa8")
 const casa9 = document.getElementById("casa9")
 
+const casas = [casa1, casa2, casa3, casa4, casa5, casa6, casa7, casa8, casa9]
+
 
 const campoEstaVazio = (casaClicada) => casaClicada.children.length == 0
 
@@ -48,12 +50,15 @@ function joga(casa){
 
         if (casaClicada != ``){ 
             casaClicada.innerHTML = `<img src="../img/${jogador}.png">`
+
+            
+        } 
+
+        aplicarJogadaMaquina() 
             casasIguais(casa1.innerHTML, casa2.innerHTML, casa3.innerHTML) || casasIguais(casa4.innerHTML, casa5.innerHTML, casa6.innerHTML) || casasIguais(casa7.innerHTML, casa8.innerHTML, casa9.innerHTML) ||
             casasIguais(casa1.innerHTML, casa4.innerHTML, casa7.innerHTML) || casasIguais(casa2.innerHTML, casa5.innerHTML, casa8.innerHTML) || casasIguais(casa3.innerHTML, casa6.innerHTML, casa9.innerHTML) ||
             casasIguais(casa1.innerHTML, casa5.innerHTML, casa9.innerHTML) || casasIguais(casa3.innerHTML, casa5.innerHTML, casa7.innerHTML)
-            
-        }
-
+           
         vezDe.innerHTML = `Vez de ${adversario}`
         
   
@@ -73,6 +78,10 @@ function FecharOpcoes(){
 }
 
 function reiniciarJogo() { 
+    document.querySelector(".win").style.display = "none"   
+    temVencedor = false
+    quemVaiComecar()
+    vezDe.innerHTML = `Vez de ${quemComeca.value}`
     casa1.innerHTML = `` 
     casa2.innerHTML = ``
     casa3.innerHTML = ``
@@ -82,10 +91,6 @@ function reiniciarJogo() {
     casa7.innerHTML = ``
     casa8.innerHTML = ``
     casa9.innerHTML = ``
-    document.querySelector(".win").style.display = "none"   
-    temVencedor = false
-    quemVaiComecar()
-    vezDe.innerHTML = `Vez de ${quemComeca.value}`
 }
 
 let casaA
@@ -131,90 +136,108 @@ function verificaTipoeJoga(){
     }
 }
 
-  var jogadaAleatoria = Math.floor(Math.random()*9)
+ function verificaVazio(casa, jogadaAleatoria){
 
+    if(casa.innerHTML != ``){
+        jogadaAleatoria = Math.floor(Math.random() * 9)
+    }
+
+    return jogadaAleatoria
+ }
+     
 function jogarAleatoriamente(){
-    
-  jogadasAleatorias()
 
-    console.log(jogadaAleatoria)
+var jogadaAleatoria = 0
+
+           jogadaAleatoria = Math.floor(Math.random() * 9)
+      console.log(jogadaAleatoria)
+
+          if(campoEstaVazio(casa1) && jogadaAleatoria == 0 && verificaVazio(casa1, jogadaAleatoria)){
+            casa1.innerHTML = `<img src="../img/${adversario}.png">`
+
+        } else if (!campoEstaVazio(casa1) && jogadaAleatoria == 0){
+            jogadaAleatoria = Math.floor(Math.random() * 9)
+            
+        } 
+        
+        if(campoEstaVazio(casa2) && jogadaAleatoria == 1 && verificaVazio(casa2, jogadaAleatoria)){
+            casa2.innerHTML = `<img src="../img/${adversario}.png">`
+
+        } else if (!campoEstaVazio(casa2) && jogadaAleatoria == 1){
+            jogadaAleatoria = Math.floor(Math.random() * 9)
+
+        } 
+         if(campoEstaVazio(casa3) && jogadaAleatoria == 2 && verificaVazio(casa3, jogadaAleatoria)){
+            casa3.innerHTML = `<img src="../img/${adversario}.png">`
    
+        } else if (!campoEstaVazio(casa3) && jogadaAleatoria == 2){
+            jogadaAleatoria = Math.floor(Math.random() * 9)
+            
+        } 
+        
+        if(campoEstaVazio(casa4) && jogadaAleatoria == 3 && verificaVazio(casa4, jogadaAleatoria)){
+            casa4.innerHTML = `<img src="../img/${adversario}.png">`
 
- if ((casa1.innerHTML != ``) && (jogadaAleatoria == 0)){
-        jogadaAleatoria = Math.floor(Math.random()*9)
-        jogadasAleatorias()
- } else if ((casa2.innerHTML != ``)  && (jogadaAleatoria == 1)){
-    jogadaAleatoria = Math.floor(Math.random()*9)
-    jogadasAleatorias()
-} else if ((casa3.innerHTML != ``)  && (jogadaAleatoria == 2)){
-    jogadaAleatoria = Math.floor(Math.random()*9)
-    jogadasAleatorias()
-} else if ((casa4.innerHTML != ``) && (jogadaAleatoria == 3)){
-    jogadaAleatoria = Math.floor(Math.random()*9)
-    jogadasAleatorias()
-} else if ((casa5.innerHTML != ``)  && (jogadaAleatoria == 4)){
-    jogadaAleatoria = Math.floor(Math.random()*9)
-    jogadasAleatorias()
-} else if ((casa6.innerHTML != ``)  && (jogadaAleatoria == 5)){
-    jogadaAleatoria = Math.floor(Math.random()*9)
-    jogadasAleatorias()
-} else if ((casa7.innerHTML != ``) && (jogadaAleatoria == 6)){
-    jogadaAleatoria = Math.floor(Math.random()*9)
-    jogadasAleatorias()
-} else if ((casa8.innerHTML != ``)  && (jogadaAleatoria == 7)){
-    jogadaAleatoria = Math.floor(Math.random()*9)
-    jogadasAleatorias()
-} else if ((casa9.innerHTML != ``) && (jogadaAleatoria == 8)){
-    jogadaAleatoria = Math.floor(Math.random()*9)
-    jogadasAleatorias()
-}
+        } else if (!campoEstaVazio(casa4) && jogadaAleatoria == 3){
+            jogadaAleatoria = Math.floor(Math.random() * 9)  
+        } 
+        
+        if(campoEstaVazio(casa5) && jogadaAleatoria == 4 && verificaVazio(casa5, jogadaAleatoria)){
+            casa5.innerHTML = `<img src="../img/${adversario}.png">`
+
+        } else if (!campoEstaVazio(casa5) && jogadaAleatoria == 4){
+            jogadaAleatoria = Math.floor(Math.random() * 9)
+            
+        } 
+
+        if(campoEstaVazio(casa6) && jogadaAleatoria == 5 && verificaVazio(casa6, jogadaAleatoria)){
+            casa6.innerHTML = `<img src="../img/${adversario}.png">`
+
+        } else if (!campoEstaVazio(casa6) && jogadaAleatoria == 5){
+            jogadaAleatoria = Math.floor(Math.random() * 9)
+            
+        } 
+        
+        if(campoEstaVazio(casa7) && jogadaAleatoria == 6 && verificaVazio(casa7, jogadaAleatoria)){
+            casa7.innerHTML = `<img src="../img/${adversario}.png">`
+
+        } else if (!campoEstaVazio(casa7) && jogadaAleatoria == 6){
+            jogadaAleatoria = Math.floor(Math.random() * 9)
+            
+        }  
+        
+        if(campoEstaVazio(casa8) && jogadaAleatoria == 7 && verificaVazio(casa8, jogadaAleatoria)){
+            casa8.innerHTML = `<img src="../img/${adversario}.png">`
+
+        } else if (!campoEstaVazio(casa8) && jogadaAleatoria == 7){
+            jogadaAleatoria = Math.floor(Math.random() * 9)
+            
+        }  
+        
+        if(campoEstaVazio(casa9) && jogadaAleatoria == 8 && verificaVazio(casa9, jogadaAleatoria)){
+            casa9.innerHTML = `<img src="../img/${adversario}.png">`
+
+        } else if (!campoEstaVazio(casa9) && jogadaAleatoria == 8){
+            jogadaAleatoria = Math.floor(Math.random() * 9)
+            
+        } 
+
+ 
 
     if(jogador == 'Pirata'){
         ePirata = true
+        adversario = "Pirata"
     } else if(jogador == 'Marinha') {
         ePirata = false
+          adversario = "Pirata"
     }
     
-    vezDe.innerHTML = `Vez de ${jogador}`
+    vezDe.innerHTML = `Vez de ${adversario}`
  
+
 }
 
-function jogadasAleatorias() {
-    
-    if(jogadaAleatoria == 0 && casa1.innerHTML == ``){
-        casa1.innerHTML = `<img src="../img/${adversario}.png">`
-      
-    } else if(jogadaAleatoria == 1 && casa2.innerHTML == ``){
-        casa2.innerHTML = `<img src="../img/${adversario}.png">`
 
-        
-    } else if(jogadaAleatoria == 2 && casa3.innerHTML == ``){
-        casa3.innerHTML = `<img src="../img/${adversario}.png">`
-
-        
-    } else if(jogadaAleatoria == 3 && casa4.innerHTML == ``){
-        casa4.innerHTML = `<img src="../img/${adversario}.png">`
-
-        
-    } else if(jogadaAleatoria == 4 && casa5.innerHTML == ``){
-        casa5.innerHTML = `<img src="../img/${adversario}.png">`
-
-        
-    } else if(jogadaAleatoria == 5 && casa6.innerHTML == ``){
-        casa6.innerHTML = `<img src="../img/${adversario}.png">`
-        
-    } else if(jogadaAleatoria == 6 && casa7.innerHTML == ``){
-        casa7.innerHTML = `<img src="../img/${adversario}.png">`
-
-    } else if(jogadaAleatoria == 7 && casa8.innerHTML == ``){
-        casa8.innerHTML = `<img src="../img/${adversario}.png">`
-
-        
-    } else if(jogadaAleatoria == 8 && casa9.innerHTML == ``){
-        casa9.innerHTML = `<img src="../img/${adversario}.png">`
-
-    }
-}
 
 function fecharAdversario() {
     // if(casaA == casaB){
@@ -238,13 +261,11 @@ function verificaPirata() {
         jogador = 'Pirata'
         adversario = 'Marinha'
         ePirata = false
-        aplicarJogadaMaquina()
         
     } else if (!ePirata) {
         jogador = 'Marinha'
         adversario = 'Pirata'
         ePirata = true
-        aplicarJogadaMaquina()
     }
 }
 
