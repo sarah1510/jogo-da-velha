@@ -257,6 +257,12 @@ function verificaTipoeJoga(){
             casa8.innerHTML = `<img src="../img/${adversario}.png">`;
             botVez = false;
         }  
+
+        if (casa1.innerHTML == `<img src="../img/${jogador}.png">` && casa6.innerHTML == `<img src="../img/${jogador}.png">`) {
+            casa2.innerHTML = `<img src="../img/${adversario}.png">`;
+            botVez = false;
+        } 
+
         if (casa3.innerHTML == `<img src="../img/${jogador}.png">` && casa7.innerHTML == `<img src="../img/${jogador}.png">`) {
             casa8.innerHTML = `<img src="../img/${adversario}.png">`;
             botVez = false;
