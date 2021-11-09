@@ -23,7 +23,8 @@ const quemComeca = document.getElementById("QuemComeca")
 
 var temVencedor = false
 var ePirata = true
-var botVez = false
+let botVez
+let primeiraJogada = true
 let casaClicada
   
 
@@ -50,13 +51,13 @@ function joga(casa){
 
         if (casaClicada != ``){ 
             casaClicada.innerHTML = `<img src="../img/${jogador}.png">`
-
             
         } 
 
         verificaVitoria()
         if (temVencedor == false){
-        aplicarJogadaMaquina()   
+        aplicarJogadaMaquina()  
+       
         } else {
         verificaVitoria()
         }
@@ -90,6 +91,7 @@ function reiniciarJogo() {
     quemVaiComecar()
     vezDe.innerHTML = `Vez de ${quemComeca.value}`
     limparCasas()
+    primeiraJogada = true
 }
 
 function limparCasas(){
@@ -142,28 +144,127 @@ function verificaTipoeJoga(){
       
     } else if (tipoDeJogo.value == 'medium'){
 
-        botVez = false
+        botVez = true
 
+    if(botVez == true){ 
+            fecharAdversario(verificarJogador(),verificarAdversario(), casa1, casa2, casa3)   
+    }
+    if(botVez == true){
+            fecharAdversario(verificarJogador(),verificarAdversario(), casa4, casa5, casa6) 
+    }   
+    if(botVez == true){
+            fecharAdversario(verificarJogador(),verificarAdversario(), casa7, casa8, casa9) 
+    }   
+    if(botVez == true){
+            fecharAdversario(verificarJogador(),verificarAdversario(), casa1, casa4, casa7) 
+    }   
+    if(botVez == true){
+        fecharAdversario(verificarJogador(),verificarAdversario(), casa2, casa5, casa8) 
+    }   
+    if(botVez == true){
+            fecharAdversario(verificarJogador(),verificarAdversario(), casa3, casa6, casa9) 
+    }   
+    if(botVez == true){
+            fecharAdversario(verificarJogador(),verificarAdversario(), casa1, casa5, casa9) 
 
+    }  
+    if(botVez == true){
+            fecharAdversario(verificarJogador(),verificarAdversario(), casa3, casa5, casa7)
 
+    }  
 
-        if (botVez == false) {
-        fecharVitoriaJogador(casa1.innerHTML, casa2.innerHTML, casa3.innerHTML) 
-        fecharVitoriaJogador(casa4.innerHTML, casa5.innerHTML, casa6.innerHTML) 
-        fecharVitoriaJogador(casa7.innerHTML, casa8.innerHTML, casa9.innerHTML) 
-        fecharVitoriaJogador(casa1.innerHTML, casa4.innerHTML, casa7.innerHTML) 
-        fecharVitoriaJogador(casa2.innerHTML, casa5.innerHTML, casa8.innerHTML) 
-        fecharVitoriaJogador(casa3.innerHTML, casa6.innerHTML, casa9.innerHTML)  
-        fecharVitoriaJogador(casa1.innerHTML, casa5.innerHTML, casa9.innerHTML) 
-        fecharVitoriaJogador(casa3.innerHTML, casa5.innerHTML, casa7.innerHTML) 
-        }
         
-    // if (botVez == false) {
-    //     jogarAleatoriamente(verificarAdversario())
-    // }
+    if (botVez == true) {
+        jogarAleatoriamente(verificarAdversario())
+    }
       
-    } else if (tipoDeJogo.value == 'playerVSplayer'){
+    } else if (tipoDeJogo.value == 'impossible'){
 
+            verificarAdversario()
+            verificarJogador()
+
+        botVez = true
+
+        if (primeiraJogada == true) {
+         
+            if (casa5.innerHTML == ``) {
+                casa5.innerHTML = `<img src="../img/${adversario}.png">`
+                primeiraJogada = false
+                botVez = false
+            } else {
+                casa1.innerHTML = `<img src="../img/${adversario}.png">`
+                primeiraJogada = false
+                botVez = false
+            }
+        }
+
+    if(botVez == true){ 
+        botFechaVitoria(verificarJogador(),verificarAdversario(), casa1, casa2, casa3)   
+    }
+    if(botVez == true){
+        botFechaVitoria(verificarJogador(),verificarAdversario(), casa4, casa5, casa6) 
+    }   
+    if(botVez == true){
+        botFechaVitoria(verificarJogador(),verificarAdversario(), casa7, casa8, casa9) 
+    }   
+    if(botVez == true){
+        botFechaVitoria(verificarJogador(),verificarAdversario(), casa1, casa4, casa7) 
+    }   
+    if(botVez == true){
+        botFechaVitoria(verificarJogador(),verificarAdversario(), casa2, casa5, casa8) 
+    }   
+    if(botVez == true){
+        botFechaVitoria(verificarJogador(),verificarAdversario(), casa3, casa6, casa9) 
+    }   
+    if(botVez == true){
+        botFechaVitoria(verificarJogador(),verificarAdversario(), casa1, casa5, casa9) 
+
+    }  
+    if(botVez == true){
+        botFechaVitoria(verificarJogador(),verificarAdversario(), casa3, casa5, casa7)
+
+    }  
+
+        if(botVez == true){ 
+                fecharAdversario(verificarJogador(),verificarAdversario(), casa1, casa2, casa3)   
+        }
+        if(botVez == true){
+                fecharAdversario(verificarJogador(),verificarAdversario(), casa4, casa5, casa6) 
+        }   
+        if(botVez == true){
+                fecharAdversario(verificarJogador(),verificarAdversario(), casa7, casa8, casa9) 
+        }   
+        if(botVez == true){
+                fecharAdversario(verificarJogador(),verificarAdversario(), casa1, casa4, casa7) 
+        }   
+        if(botVez == true){
+            fecharAdversario(verificarJogador(),verificarAdversario(), casa2, casa5, casa8) 
+        }   
+        if(botVez == true){
+                fecharAdversario(verificarJogador(),verificarAdversario(), casa3, casa6, casa9) 
+        }   
+        if(botVez == true){
+                fecharAdversario(verificarJogador(),verificarAdversario(), casa1, casa5, casa9) 
+    
+        }  
+        if(botVez == true){
+                fecharAdversario(verificarJogador(),verificarAdversario(), casa3, casa5, casa7)
+    
+        }  
+    
+       
+        if (casa1.innerHTML == `<img src="../img/${jogador}.png">` && casa9.innerHTML == `<img src="../img/${jogador}.png">`) {
+            casa8.innerHTML = `<img src="../img/${adversario}.png">`;
+            botVez = false;
+        }  
+        if (casa3.innerHTML == `<img src="../img/${jogador}.png">` && casa7.innerHTML == `<img src="../img/${jogador}.png">`) {
+            casa8.innerHTML = `<img src="../img/${adversario}.png">`;
+            botVez = false;
+        }    
+
+        if (botVez == true) {
+            jogarAleatoriamente(verificarAdversario())
+        }
     }
 }
 
@@ -171,28 +272,44 @@ function verificaTipoeJoga(){
 
 
 
-function fecharVitoriaJogador(casaA, casaB, casaC){
+
+
+const fecharAdversario = (jogador, adversario, casaA, casaB, casaC) => {
+
     if(casaA.innerHTML == `<img src="../img/${jogador}.png">` || casaB.innerHTML == `<img src="../img/${jogador}.png">` || casaC.innerHTML == `<img src="../img/${jogador}.png">`){
 
-        if (casaA.innerHTML == casaB.innerHTML){
+        if (casaA.innerHTML == casaB.innerHTML && casaC.innerHTML == ``){
             casaC.innerHTML = `<img src="../img/${adversario}.png">`
-        
-        } else if (casaA.innerHTML == casaC.innerHTML) {
+            botVez = false
+        } else if (casaA.innerHTML == casaC.innerHTML && casaB.innerHTML == ``) {
             casaB.innerHTML = `<img src="../img/${adversario}.png">`
-        } else if (casaB.innerHTML == casaC.innerHTML){
+            botVez = false
+        } else if (casaB.innerHTML == casaC.innerHTML  && casaA.innerHTML == ``){
             casaA.innerHTML = `<img src="../img/${adversario}.png">`
+            botVez = false
         }
+
     }
 
-    if(jogador == 'Pirata'){
-        ePirata = true
-        adversario = "Marinha"
-        jogador = "Pirata"
-    } else if(jogador == 'Marinha') {
-        ePirata = false
-        adversario = "Pirata"
-        jogador = "Marinha"
+}
+
+const botFechaVitoria = (jogador, adversario, casaA, casaB, casaC) => {
+
+    if(casaA.innerHTML == `<img src="../img/${adversario}.png">` || casaB.innerHTML == `<img src="../img/${adversario}.png">` || casaC.innerHTML == `<img src="../img/${adversario}.png">`){
+
+        if (casaA.innerHTML == casaB.innerHTML && casaC.innerHTML == ``){
+            casaC.innerHTML = `<img src="../img/${adversario}.png">`
+            botVez = false
+        } else if (casaA.innerHTML == casaC.innerHTML && casaB.innerHTML == ``) {
+            casaB.innerHTML = `<img src="../img/${adversario}.png">`
+            botVez = false
+        } else if (casaB.innerHTML == casaC.innerHTML  && casaA.innerHTML == ``){
+            casaA.innerHTML = `<img src="../img/${adversario}.png">`
+            botVez = false
+        }
+
     }
+    
 }
 
 function aplicarJogadaMaquina() {
@@ -212,16 +329,14 @@ function verificaPirata() {
     }
 }
 
-function jogarAleatoriamente(adversario){
+const jogarAleatoriamente = (adversario) => {
 
           for (let i = 0; i < 10; i++) {
             const jogadaAleatoria = Math.floor((Math.random() * 9) + 1)
-            console.log(jogadaAleatoria)
       
             if (casas["casa" + jogadaAleatoria].innerHTML == ``) {
                 document.getElementById("casa" + jogadaAleatoria).innerHTML = `<img src="../img/${adversario}.png">`;
-                botVez = true
-                break;
+                break
             }
         }
 
@@ -252,63 +367,3 @@ function jogarAleatoriamente(adversario){
 
     return jogador
  }
-  
-
-  
- 
-
-
-//  if(casaA.innerHTML == `<img src="../img/${jogador}.png">` || casaB.innerHTML == `<img src="../img/${jogador}.png">` || casaC.innerHTML == `<img src="../img/${jogador}.png">`){
-
-//     if (casaA.innerHTML == casaB.innerHTML){
-//         casaC.innerHTML = `<img src="../img/${adversario}.png">`
-//     } else if (casaA.innerHTML == casaC.innerHTML) {
-//         casaB.innerHTML = `<img src="../img/${adversario}.png">`
-//     } else if (casaB.innerHTML == casaC.innerHTML){
-//         casaA.innerHTML = `<img src="../img/${adversario}.png">`
-//     }
-// }
-// if(jogador == 'Pirata'){
-//     ePirata = true
-//     adversario = "Pirata"
-// } else if(jogador == 'Marinha') {
-//     ePirata = false
-//       adversario = "Pirata"
-// }
-
-
-// if (
-//     casaA == `<img src="../img/${jogador}.png"></img>` &&
-//     casaB == `<img src="../img/${jogador}.png"></img>`
-// ) {
-//     if (casaC.innerHTML == ``) {
-//         document.getElementById(casaC).innerHTML = `<img src="../img/${adversario}.png"></img>`;
-//         botVez = true;
-//     }
-// } else if (
-//     casaB == `<img src="../img/${jogador}.png"></img>` &&
-//     casaC == `<img src="../img/${jogador}.png"></img>`
-// ) {
-//     if (casaA.innerHTML == ``) {
-//         document.getElementById(casaA).innerHTML = `<img src="../img/${adversario}.png"></img>`;
-//         botVez = true;
-//     }
-// } else if (
-//     casaA == `<img src="../img/${jogador}.png"></img>` &&
-//     casaC == `<img src="../img/${jogador}.png"></img>`
-// ) {
-//     if (casaB.innerHTML == ``) {
-//         document.getElementById(casaB).innerHTML = `<img src="../img/${adversario}.png"></img>`;
-//         botVez = true;
-//     }
-// }
-
-// if(jogador == 'Pirata'){
-//     ePirata = true
-//     adversario = "Marinha"
-//     jogador = "Pirata"
-// } else if(jogador == 'Marinha') {
-//     ePirata = false
-//       adversario = "Pirata"
-//       jogador = "Marinha"
-// }
