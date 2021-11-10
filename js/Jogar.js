@@ -54,8 +54,10 @@ function joga(casa){
         verificaVitoria()
         }
         verificaVitoria()
-        // vezDe.innerHTML = `Vez de ${adversario}`
         
+        if(tipoDeJogo.value == 'playerVSplayer'){
+            vezDe.innerHTML = `Vez de ${adversario}`
+        }
     } 
 
     
